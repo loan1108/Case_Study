@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cấp lại mật khẩu</title>
+    <script src="https://kit.fontawesome.com/927b705043.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+
+<body>
+    <div id="reset-screen">
+        <div >
+            <div id="logo">
+                <img src="../assets/icon-logo.png">
+            </div>
+            <h1>HỆ THỐNG QUẢN LÝ NHÀ TRƯỜNG</h1>
+            <h4>Cấp lại mật khẩu</h4>
+            <form action="#">
+                <p class="user-infor">
+                    <span id="human-icon"><i class="fa-solid fa-user"></i></span>
+                    <input type="text" id="user-name" placeholder="Tên đăng nhập">
+                </p>
+                
+                <p class="user-infor">
+                    <span id="passWord-icon"><i class="fa-solid fa-lock"></i></span>
+                    <input type="text" id="phone-number" placeholder="Số điện thoại">
+                </p>
+                <p class ="user-infor" id="otp">
+                    <input id="otp-input"type="text" placeholder="Mã xác thực">
+                    <span id="otp-number"></span>
+                </p>
+                <h4 id="error-message">Hệ thống sẽ cấp lại mật khẩu cho Thầy/ Cô qua số điện thoại đăng kí.</h4>
+                <button type="button" id="reset-btn">Cấp lại mật khẩu</button>
+                <button type="button" id="return-btn">Quay lại</button>
+            </form>
+        </div>
+        <div id="footer">
+            <div id="support"><i class="fa-solid fa-headset"></i></div>
+            <div>
+                <p>TƯ VẤN VÀ HỖ TRỢ</p>
+                <P>18008000</P>
+                <P>Nhánh 2 (miễn phí)</P>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
