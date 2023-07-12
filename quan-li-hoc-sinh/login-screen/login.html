@@ -1,64 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đăng nhập</title>
-    <script src="https://kit.fontawesome.com/927b705043.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
-   
-</head>
+    <script
+      src="https://kit.fontawesome.com/927b705043.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
     <div id="login-screen">
-        <div >
-            <div id="logo">
-                <img src="../assets/icon-logo.png">
-            </div>
-            <h1>HỆ THỐNG QUẢN LÝ NHÀ TRƯỜNG</h1>
-            <h4>Đăng nhập</h4>
-            <form action="#">
-                <p class="user-infor">
-                    <span id="human-icon"><i class="fa-solid fa-user"></i></span>
-                    <input type="text" id="user-name" placeholder="Tên đăng nhập">
-                </p>
-                
-                <p class="user-infor">
-                    <span id="passWord-icon"><i class="fa-solid fa-lock"></i></span>
-                    <input type="password" id="pass-word" placeholder="Mật khẩu">
-                </p>
-                <p id="error-message"></p>
-                <p>
-                    <input type="checkbox" id="hidden-pw">
-                    <label for="hidden-pw">Hiển thị mật khẩu</label>
-                    <a href="#" id="forget-pw">Quên mật khẩu</a>
-                </p>
-                <button type="button" id="login-btn">Đăng nhập</button>
-
-            </form>
-            <div id="download-app">
-                <button type="button" class="store" id="app-store">
-                    <span><i class="fa-brands fa-apple"></i></span>
-                    <span>Tải App trên App Store</span>
-                </button>
-                <button type="button" class="store" id="google-play">
-                    <span><i class="fa-brands fa-google-play"></i></span>
-                    <span>Tải App trên App Store</span>
-                </button>
-
-            </div>
+      <div>
+        <div id="logo">
+          <img src="../assets/icon-logo.png" />
         </div>
-        <div id="footer">
-            <div id="support"><i class="fa-solid fa-headset"></i></div>
-            <div>
-                <p>TƯ VẤN VÀ HỖ TRỢ</p>
-                <P>18008000</P>
-                <P>Nhánh 2 (miễn phí)</P>
-            </div>
+        <h1>HỆ THỐNG QUẢN LÝ NHÀ TRƯỜNG</h1>
+        <h4>Đăng nhập</h4>
+        <form action="#">
+          <p class="user-infor">
+            <span id="human-icon"><i class="fa-solid fa-user"></i></span>
+            <input type="text" id="user-name" placeholder="Tên đăng nhập" />
+          </p>
+
+          <p class="user-infor">
+            <span id="passWord-icon"><i class="fa-solid fa-lock"></i></span>
+            <input type="password" id="pass-word" placeholder="Mật khẩu" />
+          </p>
+          <p id="error-message"></p>
+          <p>
+            <input type="checkbox" id="hidden-pw" />
+            <label for="hidden-pw">Hiển thị mật khẩu</label>
+            <a href="#" id="forget-pw">Quên mật khẩu</a>
+          </p>
+          <button type="button" id="login-btn">Đăng nhập</button>
+        </form>
+        <div id="download-app">
+          <button type="button" class="store" id="app-store">
+            <span><i class="fa-brands fa-apple"></i></span>
+            <span>Tải App trên App Store</span>
+          </button>
+          <button type="button" class="store" id="google-play">
+            <span><i class="fa-brands fa-google-play"></i></span>
+            <span>Tải App trên App Store</span>
+          </button>
         </div>
+      </div>
+      <div id="footer">
+        <div id="support"><i class="fa-solid fa-headset"></i></div>
+        <div>
+          <p>TƯ VẤN VÀ HỖ TRỢ</p>
+          <p>18008000</p>
+          <p>Nhánh 2 (miễn phí)</p>
+        </div>
+      </div>
     </div>
     <script src="main.js"></script>
-</body>
-
+  </body>
 </html>
