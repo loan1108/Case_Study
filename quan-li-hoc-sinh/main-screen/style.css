@@ -3,7 +3,7 @@ body{
 }
 .card{
     width: 350px;
-    height: 450px;
+    height: 475px;
     border: 1px solid lightblue;
     padding: 20px;
    background-color: #f3eeef;
@@ -32,7 +32,9 @@ body{
     margin: 50px 100px;
     text-align: end;
 }
-
+.remove-btn{
+    font-size: 25px;
+}
 .add-btn{
     background-color:lightgreen;
 }
