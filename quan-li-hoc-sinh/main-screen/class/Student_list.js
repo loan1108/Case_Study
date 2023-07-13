@@ -37,7 +37,7 @@ class StudentList {
                                 ><button type="button" class="edit-btn btn" >CHỈNH SỬA</button>
                             </p>
                             <p>
-                                <span>Ngày sinh: </span><span>1/1/2010</span
+                                <span>Ngày sinh: </span><span>${this.students[i].birthdate}</span
                                 ><button type="button" class="edit-btn btn" >CHỈNH SỬA</button>
                             </p>
                             <div>
@@ -66,11 +66,11 @@ class StudentList {
                         
                     </div>`;
 
-      document
-        .getElementById("remove-btn")
-        .addEventListener("click", function () {
-          this.removeStudent(i);
-        });
+    //   document
+    //     .getElementById("remove-btn")
+    //     .addEventListener("click", function () {
+    //       this.removeStudent(i);
+    //     });
     }
     document.getElementById("class-list").innerHTML = str;
   }

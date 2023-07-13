@@ -1,9 +1,9 @@
 class Student {
-    constructor(id,img,name, birtdate, group) {
+    constructor(id,img,name, birthdate, group) {
         this.id = id;
         this.img = img;
         this.name = name;
-        this.birtdate = birtdate;
+        this.birthdate = birthdate;
         this.group = group;
     }
     getFirstTermScore() {

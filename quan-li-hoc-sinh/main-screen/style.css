@@ -1,40 +1,45 @@
-body{
-    margin: 35px;
+body {
+  margin: 35px;
 }
-.card{
-    width: 350px;
-    height: 475px;
-    border: 1px solid lightblue;
-    padding: 20px;
-   background-color: #f3eeef;
+#class-list {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
 }
-.student-img{
-    text-align: center;
-    padding: 10px;
+.card {
+  width: 350px;
+  height: 475px;
+  border: 1px solid lightblue;
+  padding: 20px;
+  background-color: #f3eeef;
+  margin: 10px 10px;
 }
-.student-infor{
-    font-weight: bold;
-    font-size: 17px;
-    font-family: sans-serif;
-    line-height: 1.3;
+.student-img {
+  text-align: center;
+  padding: 10px;
 }
-.btn{
-    width: 80px;
-    height: 35px;
-    margin-left: 20px;
+.student-infor {
+  font-weight: bold;
+  font-size: 17px;
+  font-family: sans-serif;
+  line-height: 1.3;
 }
-.student-infor .edit-btn{
-    
-    width: 92px;
-    height: 25px;
+.btn {
+  width: 80px;
+  height: 35px;
+  margin-left: 20px;
 }
-.button-area{
-    margin: 50px 100px;
-    text-align: end;
+.student-infor .edit-btn {
+  width: 92px;
+  height: 25px;
 }
-#remove-btn{
-    font-size: 25px;
+.button-area {
+  margin: 50px 100px;
+  text-align: end;
 }
-.add-btn{
-    background-color:lightgreen;
+#remove-btn {
+  font-size: 25px;
+}
+.add-btn {
+  background-color: lightgreen;
 }
