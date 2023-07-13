@@ -1,23 +1,27 @@
 class StudentList {
-    constructor(_students) { 
-        this.students = _students;
+    constructor() { 
+        //this.name = name;
+        this.students = this.load();
     }
-    addStudent(_student){
-        this.students.push(_student);
-        displayAll();
+    addStudent(student){
+        this.students.push(student);
+        console.log(this.students[0].img);
+        this.save();
+        
 
     }
-    removeStudent(_id){
-        this.students.splice(_id,1);
-        displayAll();
+    removeStudent(index){
+        this.students.splice(index,1);
+        this.save();
+        this.displayAll();
     }
     displayAll() {
         let str = "";
         for (let i = 0; i < this.students.length; i++) {
             str += `<div class="card">
                         <div style="text-align: right">
-                            <span type="button" class="remove-btn btn" onclick="this.removeStudent(${i}")
-                            ><i class="fa-solid fa-trash"></i
+                            <span type="button" class="remove-btn btn"
+                            ><i class="fa-solid fa-trash" onclick="${this.removeStudent(i)}" ></i
                             ></span>    
                         </div>
                         <div class="student-img">
@@ -52,5 +56,13 @@ class StudentList {
                         </div>
                     </div>`;
         }
+        document.getElementById("class-list").innerHTML = str;
+    }
+    save(){
+        localStorage.setItem("list",JSON.stringify(this.students));
+    }
+    load(){
+        return JSON.parse(localStorage.getItem("list"))??[];
+
     }
 }
