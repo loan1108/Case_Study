@@ -37,7 +37,7 @@ body {
   margin: 50px 100px;
   text-align: end;
 }
-#remove-btn {
+.remove-btn {
   font-size: 25px;
 }
 .add-btn {

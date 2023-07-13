@@ -4,7 +4,6 @@ class StudentList {
   }
   addStudent(student) {
     this.students.push(student);
-    console.log(this.students[0].img);
     this.save();
     this.displayAll();
   }
@@ -16,11 +15,10 @@ class StudentList {
   displayAll() {
     let str = "";
     for (let i = 0; i < this.students.length; i++) {
-      console.log(this.students[0].img);
       str += `<div class="card">   
                         <div style="text-align: right">
-                            <span type="button" class="btn" 
-                            ><i class="fa-solid fa-trash" id="remove-btn"></i
+                            <span type="button" class="remove-btn btn" 
+                            ><i class="fa-solid fa-trash" ></i
                             ></span>
                         </div> 
                         <div class="student-img">
@@ -37,7 +35,9 @@ class StudentList {
                                 ><button type="button" class="edit-btn btn" >CHỈNH SỬA</button>
                             </p>
                             <p>
-                                <span>Ngày sinh: </span><span>${this.students[i].birthdate}</span
+                                <span>Ngày sinh: </span><span>${
+                                  this.students[i].birthdate
+                                }</span
                                 ><button type="button" class="edit-btn btn" >CHỈNH SỬA</button>
                             </p>
                             <div>
@@ -65,12 +65,9 @@ class StudentList {
                         </div>
                         
                     </div>`;
-
-    //   document
-    //     .getElementById("remove-btn")
-    //     .addEventListener("click", function () {
-    //       this.removeStudent(i);
-    //     });
+      document.getElementsByClassName("remove-btn").onclick = function () {
+        alert("abc");
+      };
     }
     document.getElementById("class-list").innerHTML = str;
   }
