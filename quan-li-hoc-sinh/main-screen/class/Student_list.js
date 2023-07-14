@@ -14,11 +14,12 @@ class StudentList {
   }
   displayAll() {
     let str = "";
+    let index;
     for (let i = 0; i < this.students.length; i++) {
       str += `<div class="card">   
                         <div style="text-align: right">
                             <span type="button" class="remove-btn btn" 
-                            ><i class="fa-solid fa-trash" ></i
+                            ><i class="fa-solid fa-trash" onclick="deleteStudent(${i})"></i
                             ></span>
                         </div> 
                         <div class="student-img">
@@ -32,13 +33,13 @@ class StudentList {
                                 ><span class="student-name">${
                                   this.students[i].name
                                 }</span
-                                ><button type="button" class="edit-btn btn" >CHỈNH SỬA</button>
+                                ><button type="button" class="edit-btn btn" onclick="editName(${i})" >CHỈNH SỬA</button>
                             </p>
                             <p>
                                 <span>Ngày sinh: </span><span>${
                                   this.students[i].birthdate
                                 }</span
-                                ><button type="button" class="edit-btn btn" >CHỈNH SỬA</button>
+                                ><button type="button" class="edit-btn btn" onclick="editBirthdate(${i})" >CHỈNH SỬA</button>
                             </p>
                             <div>
                                 <p>Điểm trung bình: </p>
@@ -65,9 +66,9 @@ class StudentList {
                         </div>
                         
                     </div>`;
-      document.getElementsByClassName("remove-btn").onclick = function () {
-        alert("abc");
-      };
+      // document.getElementsByClassName("remove-btn").onclick = function () {
+      //   alert("abc");
+      // };
     }
     document.getElementById("class-list").innerHTML = str;
   }
