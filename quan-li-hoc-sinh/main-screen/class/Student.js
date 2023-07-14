@@ -6,6 +6,18 @@ class Student {
         this.birthdate = birthdate;
         this.group = group;
     }
+    getName(){
+        return this.name;
+    }
+    setName(_name){
+        this.name = _name;
+    }
+    getBirthDate(){
+        return this.birthdate;
+    }
+    setBirthDate(_birthdate){
+        this.birthdate = _birthdate;
+    }
     getFirstTermScore() {
         return 9.0;
     }

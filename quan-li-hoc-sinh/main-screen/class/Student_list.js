@@ -17,8 +17,8 @@ class StudentList {
     for (let i = 0; i < this.students.length; i++) {
       str += `<div class="card">   
                         <div style="text-align: right">
-                            <span type="button" class="remove-btn btn" 
-                            ><i class="fa-solid fa-trash" ></i
+                            <span type="button" class="remove-btn btn"
+                            ><i class="fa-solid fa-trash"></i
                             ></span>
                         </div> 
                         <div class="student-img">
@@ -67,6 +67,7 @@ class StudentList {
                     </div>`;
     }
     document.getElementById("class-list").innerHTML = str;
+    
   }
   save() {
     localStorage.setItem("list", JSON.stringify(this.students));

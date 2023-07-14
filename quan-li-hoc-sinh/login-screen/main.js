@@ -55,5 +55,5 @@ document
   .addEventListener("click", moveToResetScreen);
 //Move to the Main screen
 function moveToMainScreen() {
-  location.href = "#";
+  location.href = "../main_screen/index.html";
 }
