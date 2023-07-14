@@ -66,9 +66,6 @@ class StudentList {
                         </div>
                         
                     </div>`;
-      document.getElementsByClassName("remove-btn").onclick = function () {
-        alert("abc");
-      };
     }
     document.getElementById("class-list").innerHTML = str;
   }
