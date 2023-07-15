@@ -1,0 +1,25 @@
+#detail-table {
+  /* margin: auto;
+     width: 900px;
+     height: 585px; */
+  margin: 100px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+td,
+th {
+  width: auto;
+  height: 50px;
+}
+.btn {
+  width: 80px;
+  height: 35px;
+  margin-left: 20px;
+}
+.edit-btn {
+  width: 92px;
+  height: 25px;
+}

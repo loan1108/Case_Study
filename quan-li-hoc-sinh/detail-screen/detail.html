@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bảng điểm chi tiết</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="class/Semester.js"></script>
+    <script src="class/Subject.js"></script>
+    <script src="class/Subjects.js"></script>
+    <script src="class/Detail.js"></script>
+  </head>
+
+  <body>
+    <div id="detail-table">
+      <table style="width: 100%" border="1">
+        <tr>
+          <th>HỌC KÌ</th>
+          <th colspan="4">HỌC KÌ I</th>
+          <th colspan="4">HỌC KÌ II(Nhân hệ số 2)</th>
+          <th rowspan="2">TỔNG KẾT MÔN</th>
+          <th rowspan="2">CHỈNH SỬA</th>
+        </tr>
+        <tr>
+          <th>MÔN HỌC</th>
+          <th>10 phút</th>
+          <th>15 phút</th>
+          <th>Giữa kì</th>
+          <th>Cuối kì</th>
+          <th>10 phút</th>
+          <th>15 phút</th>
+          <th>Giữa kì</th>
+          <th>Cuối kì</th>
+        </tr>
+        <tr>
+          <td>TOÁN</td>
+          <td class="first-semester oral-exam"></td>
+          <td clss="first-semester fifteen-minutes-exam"></td>
+          <td class="first-semester middle-exam"></td>
+          <td class="first-semester final-exam"></td>
+          <td class="second-semester oral-exam"></td>
+          <td clss="second-semester fifteen-minutes-exam"></td>
+          <td class="second-semester middle-exam"></td>
+          <td class="second-semester final-exam"></td>
+          <td class="average-final"></td>
+          <td><button class="edit-btn btn" type="button">Chỉnh sửa</button></td>
+        </tr>
+        <tr>
+          <td>VĂN</td>
+          <td class="first-semester oral-exam"></td>
+          <td clss="first-semester fifteen-minutes-exam"></td>
+          <td class="first-semester middle-exam"></td>
+          <td class="first-semester final-exam"></td>
+          <td class="second-semester oral-exam"></td>
+          <td clss="second-semester fifteen-minutes-exam"></td>
+          <td class="second-semester middle-exam"></td>
+          <td class="second-semester final-exam"></td>
+          <td class="average-final"></td>
+          <td><button class="edit-btn btn" type="button">Chỉnh sửa</button></td>
+        </tr>
+        <tr>
+          <td>ANH</td>
+          <td class="first-semester oral-exam"></td>
+          <td clss="first-semester fifteen-minutes-exam"></td>
+          <td class="first-semester middle-exam"></td>
+          <td class="first-semester final-exam"></td>
+          <td class="second-semester oral-exam"></td>
+          <td clss="second-semester fifteen-minutes-exam"></td>
+          <td class="second-semester middle-exam"></td>
+          <td class="second-semester final-exam"></td>
+          <td class="average-final"></td>
+          <td><button class="edit-btn btn" type="button">Chỉnh sửa</button></td>
+        </tr>
+        <tr>
+          <td>HÓA</td>
+          <td class="first-semester oral-exam"></td>
+          <td clss="first-semester fifteen-minutes-exam"></td>
+          <td class="first-semester middle-exam"></td>
+          <td class="first-semester final-exam"></td>
+          <td class="second-semester oral-exam"></td>
+          <td clss="second-semester fifteen-minutes-exam"></td>
+          <td class="second-semester middle-exam"></td>
+          <td class="second-semester final-exam"></td>
+          <td class="average-final"></td>
+          <td><button class="edit-btn btn" type="button">Chỉnh sửa</button></td>
+        </tr>
+        <tr>
+          <td>LÝ</td>
+          <td class="first-semester oral-exam"></td>
+          <td clss="first-semester fifteen-minutes-exam"></td>
+          <td class="first-semester middle-exam"></td>
+          <td class="first-semester final-exam"></td>
+          <td class="second-semester oral-exam"></td>
+          <td clss="second-semester fifteen-minutes-exam"></td>
+          <td class="second-semester middle-exam"></td>
+          <td class="second-semester final-exam"></td>
+          <td class="average-final"></td>
+          <td><button class="edit-btn btn" type="button">Chỉnh sửa</button></td>
+        </tr>
+        <tr>
+          <td>SINH</td>
+          <td class="first-semester oral-exam"></td>
+          <td clss="first-semester fifteen-minutes-exam"></td>
+          <td class="first-semester middle-exam"></td>
+          <td class="first-semester final-exam"></td>
+          <td class="second-semester oral-exam"></td>
+          <td clss="second-semester fifteen-minutes-exam"></td>
+          <td class="second-semester middle-exam"></td>
+          <td class="second-semester final-exam"></td>
+          <td class="average-final"></td>
+          <td><button class="edit-btn btn" type="button">Chỉnh sửa</button></td>
+        </tr>
+        <tr>
+          <td colspan="9" >TRUNG BÌNH NĂM</td>
+          <td colspan="2" id="full-year-average"></td>
+        </tr>
+      </table>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
