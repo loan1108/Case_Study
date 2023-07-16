@@ -39,8 +39,11 @@ const biology = new Subject(
 //Tạo detail
 const detail = new Detail("Nguyễn Văn A");
 detail.subjects = [];
-detail.load();
-detail.save();
+detail.loadSubjects();
+detail.saveSubjects();
+detail.saveFirstSemesterAverage();
+detail.saveSecondSemesterAverage();
+detail.savefullYearAverage();
 detail.addSubject(math);
 detail.addSubject(literature);
 detail.addSubject(english);
@@ -49,7 +52,7 @@ detail.addSubject(physic);
 detail.addSubject(biology);
 console.log(detail.subjects);
 detail.displayDetail();
-
+S
 //Udate thông tin điểm
 function updateScore(_index) {
   let checkConfirm = confirm("Bạn có muốn thay đổi điểm này không?");

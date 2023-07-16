@@ -1,14 +1,14 @@
 class Detail {
   constructor() {
     this.studentName = this.loadStudentName();
-    this.subjects = this.load();
+    this.subjects = this.loadSubjects();
     this.firstSemesterAverage = 0;
     this.secondSemesterAverage = 0;
     this.fullYearAverage = 0;
   }
   addSubject(_subject) {
     this.subjects.push(_subject);
-    this.save();
+    this.saveSubjects();
   };
   displayDetail() {
     let str = 
@@ -79,10 +79,10 @@ class Detail {
     </table>`;
     document.getElementById("detail-table").innerHTML = str;
   }
-  save() {
+  saveSubjects() {
     localStorage.setItem("subjects", JSON.stringify(this.subjects));
   }
-  load() {
+  loadSubjects() {
     return JSON.parse(localStorage.getItem("subjects")) ?? [];
   }
   convertScore(_score){
@@ -91,5 +91,14 @@ class Detail {
   }
   loadStudentName(){
     return JSON.parse(localStorage.getItem("studentName"))??[];
+  }
+  saveFirstSemesterAverage(){
+    localStorage.setItem("firstSemesterAverage",JSON.stringify(this.firstSemesterAverage));
+  }
+  saveSecondSemesterAverage(){
+    localStorage.setItem("secondSemesterAverage",JSON.stringify(this.secondSemesterAverage));
+  }
+  savefullYearAverage(){
+    localStorage.setItem("fullYearAverage",JSON.stringify(this.fullYearAverage));
   }
 }
