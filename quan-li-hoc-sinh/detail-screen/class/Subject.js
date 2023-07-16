@@ -2,7 +2,6 @@ class Subject {
   constructor(_subjectName, _teacher, _firstSemester, _secondSemester) {
     this.subjectName = _subjectName;
     this.teacher = _teacher;
-
     this.firstSemester = _firstSemester;
     this.secondSemester = _secondSemester;
     this.averageFinal = 0;

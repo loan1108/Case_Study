@@ -39,17 +39,21 @@ const biology = new Subject(
   secondSemester
 );
 //Tạo nhóm các môn học
-const subjectRange = new Subjects(
-  math,
-  literature,
-  english,
-  chemical,
-  physic,
-  biology
-);
+
 //Tạo detail
-const detail = new Detail("Nguyễn Văn A", subjectRange);
+const detail = new Detail("Nguyễn Văn A");
+detail.subjects = [];
+detail.load();
+detail.save();
+detail.addSubject(math);
+detail.addSubject(literature);
+detail.addSubject(english);
+detail.addSubject(chemical);
+detail.addSubject(physic);
+detail.addSubject(biology);
+console.log(detail.subjects);
 detail.displayDetail();
+
 //Udate thông tin điểm
 function updateScore(_index) {
   let checkConfirm = confirm("Bạn có muốn thay đổi điểm này không?");
@@ -85,44 +89,25 @@ function updateScore(_index) {
       newLast_exam_2 != "" &&
       newLast_exam_2 != null
     ) {
-      detail.subjects.subjectRange[_index].firstSemester.setOralExam(
-        newOral_exam_1
-      );
-      detail.subjects.subjectRange[_index].firstSemester.getOralExam();
-      detail.subjects.subjectRange[_index].firstSemester.setFifteenMinuteTest(
+      detail.subjects[_index].firstSemester.setOralExam(newOral_exam_1);
+      detail.subjects[_index].firstSemester.setFifteenMinuteTest(
         newFifteen_minute_test_1
       );
-      detail.subjects.subjectRange[_index].firstSemester.getFifteenMinuteTest();
-      detail.subjects.subjectRange[_index].firstSemester.setMiddelExam(
-        newMiddle_exam_1
-      );
-      detail.subjects.subjectRange[_index].firstSemester.getMiddleExam();
-      detail.subjects.subjectRange[_index].firstSemester.setLastExam(
-        newLast_exam_1
-      );
-      detail.subjects.subjectRange[_index].firstSemester.getLastExam();
+      detail.subjects[_index].firstSemester.setMiddelExam(newMiddle_exam_1);
+      detail.subjects[_index].firstSemester.setLastExam(newLast_exam_1);
       // set second semester
-      detail.subjects.subjectRange[_index].secondSemester.setOralExam(
-        newOral_exam_2
-      );
-      detail.subjects.subjectRange[_index].secondSemester.getOralExam();
-      detail.subjects.subjectRange[_index].secondSemester.setFifteenMinuteTest(
+      detail.subjects[_index].secondSemester.setOralExam(newOral_exam_2);
+      detail.subjects[_index].secondSemester.setFifteenMinuteTest(
         newFifteen_minute_test_2
       );
-      detail.subjects.subjectRange[
-        _index
-      ].secondSemester.getFifteenMinuteTest();
-      detail.subjects.subjectRange[_index].secondSemester.setMiddelExam(
-        newMiddle_exam_2
-      );
-      detail.subjects.subjectRange[_index].secondSemester.getMiddleExam();
-      detail.subjects.subjectRange[_index].secondSemester.setLastExam(
-        newLast_exam_2
-      );
-      detail.subjects.subjectRange[_index].secondSemester.getLastExam();
+      detail.subjects[_index].secondSemester.setMiddelExam(newMiddle_exam_2);
+      detail.subjects[_index].secondSemester.setLastExam(newLast_exam_2);
     } else {
       alert("Bạn chưa nhập đầy đủ các trường");
     }
-    detail.displayDetail();
   }
+  detail.displayDetail();
 }
+detail.subjects[0].firstSemester.setOralExam(10);
+// 
+detail.displayDetail()

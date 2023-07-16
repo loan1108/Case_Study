@@ -1,20 +1,13 @@
 class Detail {
-  constructor(_studentName, _subjects) {
+  constructor(_studentName) {
     this.studenName = _studentName;
-    this.subjects = _subjects;
+    this.subjects = this.load();
     this.fullYearAverage = 0;
   }
-  // calculateFullYearAverage() {
-  //   this.fullYearAverage =
-  //     (this.subjects.math.averageFinal +
-  //       this.subjects.literature.averageFinal +
-  //       this.subjects.english.averageFinal +
-  //       this.subjects.chemical.averageFinal +
-  //       this.subjects.physic.averageFinal +
-  //       this.subjects.biology.averageFinal) /
-  //     6;
-  //   return this.fullYearAverage;
-  // }
+  addSubject(_subject) {
+    this.subjects.push(_subject);
+    this.save();
+  };
   displayDetail() {
     let str = `<table style="width: 100%" border="1">
         <tr>
@@ -36,21 +29,40 @@ class Detail {
           <th>Cuối kì</th>
         </tr>`;
     for (let i = 0; i < 6; i++) {
+      console.log(this.subjects[i].subjectName);
       str += `
       <tr>
-        <td class="subject-name">${this.subjects.subjectRange[i].subjectName}</td>
-        <td class="first-semester oral-exam">${this.subjects.subjectRange[i].firstSemester.oral_exam}</td>
-        <td clss="first-semester fifteen-minutes-exam">${this.subjects.subjectRange[i].firstSemester.fifteen_minute_test}</td>
-        <td class="first-semester middle-exam">${this.subjects.subjectRange[i].firstSemester.middle_exam}</td>
-        <td class="first-semester final-exam">${this.subjects.subjectRange[i].firstSemester.last_exam}</td>
-        <td class="second-semester oral-exam">${this.subjects.subjectRange[i].secondSemester.oral_exam}</td>
-        <td clss="second-semester fifteen-minutes-exam">${this.subjects.subjectRange[i].secondSemester.fifteen_minute_test}</td>
-        <td class="second-semester middle-exam">${this.subjects.subjectRange[i].secondSemester.middle_exam}</td>
-        <td class="second-semester final-exam">${this.subjects.subjectRange[i].secondSemester.last_exam}</td>
-        <td class="average-final">${this.subjects.subjectRange[i].averageFinal}</td>
+        <td class="subject-name">${this.subjects[i].subjectName}</td>
+        <td class="first-semester oral-exam">${this.subjects[
+          i
+        ].firstSemester.getOralExam()}</td>
+        <td clss="first-semester fifteen-minutes-exam">${this.subjects[
+          i
+        ].firstSemester.getFifteenMinuteTest()}</td>
+        <td class="first-semester middle-exam">${this.subjects[
+          i
+        ].firstSemester.getMiddleExam()}</td>
+        <td class="first-semester final-exam">${this.subjects[
+          i
+        ].firstSemester.getLastExam()}</td>
+        <td class="second-semester oral-exam">${this.subjects[
+          i
+        ].secondSemester.getOralExam()}</td>
+        <td clss="second-semester fifteen-minutes-exam">${this.subjects[
+          i
+        ].secondSemester.getFifteenMinuteTest()}</td>
+        <td class="second-semester middle-exam">${this.subjects[
+          i
+        ].secondSemester.getMiddleExam()}</td>
+        <td class="second-semester final-exam">${this.subjects[
+          i
+        ].secondSemester.getLastExam()}</td>
+        <td class="average-final">${this.subjects[
+          i
+        ].calculateAverageFinal()}</td>
         <td><button class="edit-btn btn" type="button" onclick="updateScore(${i})">Chỉnh sửa</button></td>
       </tr>`;
-      this.fullYearAverage += this.subjects.subjectRange[i].averageFinal;
+      this.fullYearAverage += this.subjects[i].calculateAverageFinal();
     }
     str += `<tr>
         <td colspan="9" >TRUNG BÌNH NĂM</td>
@@ -58,5 +70,11 @@ class Detail {
       </tr>
     </table>`;
     document.getElementById("detail-table").innerHTML = str;
+  }
+  save() {
+    localStorage.setItem("subjects", JSON.stringify(this.subjects));
+  }
+  load() {
+    return JSON.parse(localStorage.getItem("subjects")) ?? [];
   }
 }
