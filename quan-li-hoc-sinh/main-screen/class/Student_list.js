@@ -14,7 +14,6 @@ class StudentList {
   }
   displayAll() {
     let str = "";
-    let index;
     for (let i = 0; i < this.students.length; i++) {
       str += `<div class="card">   
                         <div style="text-align: right">
@@ -31,13 +30,13 @@ class StudentList {
                             <p>
                                 <span>Họ và tên: </span
                                 ><span class="student-name">${
-                                  this.students[i].name
+                                  this.students[i].getName()
                                 }</span
                                 ><button type="button" class="edit-btn btn" onclick="editName(${i})" >CHỈNH SỬA</button>
                             </p>
                             <p>
                                 <span>Ngày sinh: </span><span>${
-                                  this.students[i].birthdate
+                                  this.students[i].getBirthdate()
                                 }</span
                                 ><button type="button" class="edit-btn btn" onclick="editBirthdate(${i})" >CHỈNH SỬA</button>
                             </p>
@@ -62,7 +61,7 @@ class StudentList {
                                     ].getFullYearScore()}</span>
                                 </p>
                             </div>
-                            <p>Điểm thành phần từng môn: <a href="#">Xem tại đây</a></p>
+                            <p>Điểm thành phần từng môn: <a href="#" onclick="moveToScoreDetailScreen(${i})">Xem tại đây</a></p>
                         </div>
                         
                     </div>`;
@@ -70,9 +69,11 @@ class StudentList {
     document.getElementById("class-list").innerHTML = str;
   }
   save() {
-    localStorage.setItem("list", JSON.stringify(this.students));
+    // localStorage.setItem("studentName",JSON.stringify(this.students))
+    localStorage.setItem("students", JSON.stringify(this.students));
   }
   load() {
-    return JSON.parse(localStorage.getItem("list")) ?? [];
+    return JSON.parse(localStorage.getItem("students")) ?? [];
   }
+  
 }

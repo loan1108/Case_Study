@@ -4,36 +4,28 @@ let student_1 = new Student(
   "Xiao_Zhan.jpeg",
   "Nguyễn Văn A",
   "01/01/2008",
-  "11A1"
+  "11A1",
+  new Detail(),
 );
+// student_1.saveStudentName();
 let student_2 = new Student(
   2,
   "linyi.jpg",
   "Nguyễn Văn B",
   "01/02/2009",
-  "11A1"
+  "11A1",
+  new Detail(),
 );
+// student_2.saveStudentName();
 let student_3 = new Student(
   3,
   "liuyifei.jpg",
   "Nguyễn Văn C",
   "01/03/2009",
-  "11A1"
+  "11A1",
+  new Detail(),
 );
-let student_4 = new Student(
-  4,
-  "yangmi.jpg",
-  "Nguyễn Văn D",
-  "01/04/2009",
-  "11A1"
-);
-let student_5 = new Student(
-  5,
-  "Yibo.jpg",
-  "Nguyễn Văn E",
-  "01/05/2009",
-  "11A1"
-);
+// student_3.saveStudentName();
 let list = new StudentList();
 list.students = [];
 list.load();
@@ -41,8 +33,6 @@ list.save();
 list.addStudent(student_1);
 list.addStudent(student_2);
 list.addStudent(student_3);
-list.addStudent(student_4);
-list.addStudent(student_5);
 list.displayAll();
 
 // document.getElementById('add-btn').addEventListener('click', function(){list.addStudent(student_1);});
@@ -115,4 +105,12 @@ function editBirthdate(_index){
         }
        
     }
+}
+//Lưu student name vào local storage để lấy sử dụng tên trong màn detail
+function saveStudentName(_index) {
+  localStorage.setItem("studentName", JSON.stringify(list.students[_index].getName()))
+};
+function moveToScoreDetailScreen(_index) {
+  saveStudentName(_index);
+  location.href = "../detail-screen/detail.html";
 }

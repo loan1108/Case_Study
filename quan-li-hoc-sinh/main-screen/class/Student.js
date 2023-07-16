@@ -1,16 +1,17 @@
 class Student {
-    constructor(id,img,name, birthdate, group) {
+    constructor(id,img,studentName, birthdate, group,detailScore) {
         this.id = id;
         this.img = img;
-        this.name = name;
+        this.studentName = studentName;
         this.birthdate = birthdate;
         this.group = group;
+        this.detailScore = detailScore;
     }
     getName(){
-        return this.name;
+        return this.studentName;
     }
     setName(_newName){
-        this.name = _newName;
+        this.studentName = _newName;
     }
     getBirthdate(){
         return this.birthdate;
@@ -29,4 +30,10 @@ class Student {
             (this.getFirstTermScore() + 2 * this.getSecondTermScore()) / 3;
         return fullYearScore;
     }
+    // saveStudentName() {
+    //     localStorage.setItem("studentName", JSON.stringify(this.studentName));
+    //   }
+    // // loadStudentName() {
+    // //     return JSON.parse(localStorage.getItem("studentName")) ?? [];
+    // //   }
 }

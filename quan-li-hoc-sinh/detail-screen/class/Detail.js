@@ -1,7 +1,9 @@
 class Detail {
-  constructor(_studentName) {
-    this.studenName = _studentName;
+  constructor() {
+    this.studentName = this.loadStudentName();
     this.subjects = this.load();
+    this.firstSemesterAverage = 0;
+    this.secondSemesterAverage = 0;
     this.fullYearAverage = 0;
   }
   addSubject(_subject) {
@@ -9,7 +11,9 @@ class Detail {
     this.save();
   };
   displayDetail() {
-    let str = `<table style="width: 100%" border="1">
+    let str = 
+    `<p id="student-name">Học sinh: ${this.studentName}<p>
+    <table style="width: 100%" border="1">
         <tr>
           <th>HỌC KÌ</th>
           <th colspan="4">HỌC KÌ I</th>
@@ -29,7 +33,7 @@ class Detail {
           <th>Cuối kì</th>
         </tr>`;
     for (let i = 0; i < 6; i++) {
-      console.log(this.subjects[i].subjectName);
+      // console.log(this.subjects[i].subjectName);
       str += `
       <tr>
         <td class="subject-name">${this.subjects[i].subjectName}</td>
@@ -57,16 +61,20 @@ class Detail {
         <td class="second-semester final-exam">${this.subjects[
           i
         ].secondSemester.getLastExam()}</td>
-        <td class="average-final">${this.subjects[
+        <td class="average-final">${this.convertScore(this.subjects[
           i
-        ].calculateAverageFinal()}</td>
+        ].calculateAverageFinal())}</td>
         <td><button class="edit-btn btn" type="button" onclick="updateScore(${i})">Chỉnh sửa</button></td>
       </tr>`;
-      this.fullYearAverage += this.subjects[i].calculateAverageFinal();
+      this.firstSemesterAverage += this.subjects[i].firstSemester.averageSemester()/(this.subjects.length);
+      this.secondSemesterAverage += this.subjects[i].secondSemester.averageSemester()/(this.subjects.length);
+      this.fullYearAverage += this.subjects[i].calculateAverageFinal()/(this.subjects.length);
     }
     str += `<tr>
-        <td colspan="9" >TRUNG BÌNH NĂM</td>
-        <td colspan="2" id="full-year-average">${this.fullYearAverage}</td>
+        <td colspan="1" >TRUNG BÌNH</td>
+        <td colspan="4">${this.convertScore(this.firstSemesterAverage)}</td>
+        <td colspan="4">${this.convertScore(this.secondSemesterAverage)}</td>
+        <td colspan="2" id="full-year-average">${this.convertScore(this.fullYearAverage)}</td>
       </tr>
     </table>`;
     document.getElementById("detail-table").innerHTML = str;
@@ -76,5 +84,12 @@ class Detail {
   }
   load() {
     return JSON.parse(localStorage.getItem("subjects")) ?? [];
+  }
+  convertScore(_score){
+    let score = _score;
+    return score.toFixed(1);
+  }
+  loadStudentName(){
+    return JSON.parse(localStorage.getItem("studentName"))??[];
   }
 }

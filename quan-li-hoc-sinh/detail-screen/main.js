@@ -1,44 +1,40 @@
-//Tạo học kì
-const firstSemester = new Semester();
-const secondSemester = new Semester();
 //Tạo các môn học
 const math = new Subject(
   "Toán Học",
   "Nguyễn Thị A",
-  firstSemester,
-  secondSemester
+  new Semester(),
+  new Semester()
 );
 const literature = new Subject(
   "Ngữ Văn",
   "Nguyễn Thị B",
-  firstSemester,
-  secondSemester
+  new Semester(),
+  new Semester()
 );
 const english = new Subject(
   "Tiếng Anh",
   "Nguyễn Thị C",
-  firstSemester,
-  secondSemester
+  new Semester(),
+  new Semester()
 );
 const chemical = new Subject(
   "Hóa học",
   "Nguyễn Thị D",
-  firstSemester,
-  secondSemester
+  new Semester(),
+  new Semester()
 );
 const physic = new Subject(
   "Vật lí",
   "Nguyễn Thị E",
-  firstSemester,
-  secondSemester
+  new Semester(),
+  new Semester()
 );
 const biology = new Subject(
   "Sinh học",
   "Nguyễn Thị F",
-  firstSemester,
-  secondSemester
+  new Semester(),
+  new Semester()
 );
-//Tạo nhóm các môn học
 
 //Tạo detail
 const detail = new Detail("Nguyễn Văn A");
@@ -102,12 +98,10 @@ function updateScore(_index) {
       );
       detail.subjects[_index].secondSemester.setMiddelExam(newMiddle_exam_2);
       detail.subjects[_index].secondSemester.setLastExam(newLast_exam_2);
+      console.log(detail.subjects[_index].firstSemester.getOralExam());
     } else {
       alert("Bạn chưa nhập đầy đủ các trường");
     }
   }
   detail.displayDetail();
 }
-detail.subjects[0].firstSemester.setOralExam(10);
-// 
-detail.displayDetail()
