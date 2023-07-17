@@ -37,22 +37,19 @@ const biology = new Subject(
 );
 
 //Tạo detail
-const detail = new Detail("Nguyễn Văn A");
-detail.subjects = [];
-detail.loadSubjects();
-detail.saveSubjects();
-detail.saveFirstSemesterAverage();
-detail.saveSecondSemesterAverage();
-detail.savefullYearAverage();
-detail.addSubject(math);
-detail.addSubject(literature);
-detail.addSubject(english);
-detail.addSubject(chemical);
-detail.addSubject(physic);
-detail.addSubject(biology);
-console.log(detail.subjects);
-detail.displayDetail();
-S
+const detail = new Detail();
+
+if(detail.subjects.length <= 0) {
+  detail.addSubject(math);
+  detail.addSubject(literature);
+  detail.addSubject(english);
+  detail.addSubject(chemical);
+  detail.addSubject(physic);
+  detail.addSubject(biology);
+}
+
+detail.displayDetail()
+
 //Udate thông tin điểm
 function updateScore(_index) {
   let checkConfirm = confirm("Bạn có muốn thay đổi điểm này không?");

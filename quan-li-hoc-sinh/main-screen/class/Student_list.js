@@ -1,6 +1,9 @@
 class StudentList {
+  students = [];
+
   constructor() {
     this.students = this.load();
+    this.displayAll()
   }
   addStudent(student) {
     this.students.push(student);
@@ -73,7 +76,20 @@ class StudentList {
     localStorage.setItem("students", JSON.stringify(this.students));
   }
   load() {
-    return JSON.parse(localStorage.getItem("students")) ?? [];
+    const students = JSON.parse(localStorage.getItem("students")) ?? [];
+    const newStudents = [];
+
+    for (let i = 0; i < students.length; i++) {
+      newStudents.push(new Student(
+        students[i].id,
+        students[i].img,
+        students[i].studentName,
+        students[i].birthdate,
+        students[i].group,
+        students[i].detailScore
+      ))
+    }
+    return newStudents
   }
   
 }

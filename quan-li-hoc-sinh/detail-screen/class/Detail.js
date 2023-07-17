@@ -1,6 +1,6 @@
 class Detail {
   constructor() {
-    this.studentName = this.loadStudentName();
+    this.student = this.loadStudentName();
     this.subjects = this.loadSubjects();
     this.firstSemesterAverage = 0;
     this.secondSemesterAverage = 0;
@@ -11,8 +11,9 @@ class Detail {
     this.saveSubjects();
   };
   displayDetail() {
+    console.log(this.subjects);
     let str = 
-    `<p id="student-name">Học sinh: ${this.studentName}<p>
+    `<p id="student-name">Học sinh: ${this.student.studentName}<p>
     <table style="width: 100%" border="1">
         <tr>
           <th>HỌC KÌ</th>
@@ -78,27 +79,71 @@ class Detail {
       </tr>
     </table>`;
     document.getElementById("detail-table").innerHTML = str;
+    this.saveFirstSemesterAverage();
+    this.saveSecondSemesterAverage();
+    this.saveFullYearAverage();
   }
   saveSubjects() {
     localStorage.setItem("subjects", JSON.stringify(this.subjects));
   }
   loadSubjects() {
-    return JSON.parse(localStorage.getItem("subjects")) ?? [];
+    const subjects = JSON.parse(localStorage.getItem("subjects")) ?? [];
+    const newSubjects = [];
+
+    for (let i = 0; i < subjects.length; i++) {
+      newSubjects.push(new Subject(
+        subjects[i].subjectName,
+        subjects[i].teacher,
+        new Semester(
+          subjects[i].firstSemester.oral_exam,
+          subjects[i].firstSemester.fifteen_minute_test,
+          subjects[i].firstSemester.middle_exam,
+          subjects[i].firstSemester.last_exam,
+        ),
+        new Semester(
+          subjects[i].secondSemester.oral_exam,
+          subjects[i].secondSemester.fifteen_minute_test,
+          subjects[i].secondSemester.middle_exam,
+          subjects[i].secondSemester.last_exam,
+        ),
+        subjects[i].averageFinal,
+      ))
+    }
+    return newSubjects
   }
   convertScore(_score){
     let score = _score;
     return score.toFixed(1);
   }
   loadStudentName(){
-    return JSON.parse(localStorage.getItem("studentName"))??[];
+    const tmpStudent = JSON.parse(localStorage.getItem("studentDetail"))??{};
+    const newStudent = new Student(
+      tmpStudent.id,
+      tmpStudent.img,
+      tmpStudent.studentName,
+      tmpStudent.birthdate,
+      tmpStudent.group,
+      tmpStudent.detailScore
+    )
+    console.log(newStudent);
+    return newStudent
   }
   saveFirstSemesterAverage(){
-    localStorage.setItem("firstSemesterAverage",JSON.stringify(this.firstSemesterAverage));
+    localStorage.setItem("firstSemesterAverage",JSON.stringify({
+      studentId: this.student.id,
+      firstSemesterAverage:this.firstSemesterAverage,
+    }));
   }
   saveSecondSemesterAverage(){
-    localStorage.setItem("secondSemesterAverage",JSON.stringify(this.secondSemesterAverage));
+    localStorage.setItem("secondSemesterAverage",JSON.stringify({
+      studentId: this.student.id,
+      secondSemesterAverage:this.secondSemesterAverage,
+    }));
   }
-  savefullYearAverage(){
-    localStorage.setItem("fullYearAverage",JSON.stringify(this.fullYearAverage));
+  saveFullYearAverage(){
+    localStorage.setItem("fullYearAverage",JSON.stringify({
+      studentId: this.student.id,
+      fullYearAverage:this.fullYearAverage,
+    }));
   }
 }
