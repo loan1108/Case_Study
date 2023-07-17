@@ -78,6 +78,9 @@ class Detail {
       </tr>
     </table>`;
     document.getElementById("detail-table").innerHTML = str;
+    this.saveFirstSemesterAverage();
+    this.saveSecondSemesterAverage();
+    this.saveFullYearAverage();
   }
   save() {
     localStorage.setItem("subjects", JSON.stringify(this.subjects));
@@ -91,5 +94,14 @@ class Detail {
   }
   loadStudentName(){
     return JSON.parse(localStorage.getItem("studentName"))??[];
+  }
+  saveFirstSemesterAverage(){
+    localStorage.setItem("firstSemesterAverage",JSON.stringify(this.firstSemesterAverage));
+  }
+  saveSecondSemesterAverage(){
+    localStorage.setItem("secondSemesterAverage",JSON.stringify(this.secondSemesterAverage));
+  }
+  saveFullYearAverage(){
+    localStorage.setItem("fullYearAverage",JSON.stringify(this.fullYearAverage));
   }
 }

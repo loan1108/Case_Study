@@ -37,18 +37,23 @@ const biology = new Subject(
 );
 
 //Tạo detail
-const detail = new Detail("Nguyễn Văn A");
+const detail = new Detail();
 detail.subjects = [];
 detail.load();
 detail.save();
+
 detail.addSubject(math);
 detail.addSubject(literature);
 detail.addSubject(english);
 detail.addSubject(chemical);
 detail.addSubject(physic);
 detail.addSubject(biology);
+
 console.log(detail.subjects);
 detail.displayDetail();
+detail.saveFirstSemesterAverage()
+detail.saveSecondSemesterAverage();
+detail.saveFullYearAverage();
 
 //Udate thông tin điểm
 function updateScore(_index) {
