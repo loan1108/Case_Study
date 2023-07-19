@@ -1,12 +1,11 @@
 class Student {
-    constructor(id,img,studentName, birthdate, group,detailScore) {
+    constructor(id,img,studentName, birthdate, group) {
         this.id = id;
         this.img = img;
         this.studentName = studentName;
         this.birthdate = birthdate;
         this.group = group;
-        this.detailScore = detailScore;
-        console.log(this.loadFirstSemesterAverage());
+       // console.log(this.loadFirstSemesterAverage());
         this.firstSemesterAverage = this.loadFirstSemesterAverage().toFixed(1);
         this.secondSemesterAverage = this.loadSecondSemesterAverage().toFixed(1); 
         this.fullYearScore = this.loadFullYearScore().toFixed(1);
@@ -30,16 +29,11 @@ class Student {
         return this.secondSemesterAverage;
     }
     getFullYearScore() {
-        // this.fullYearScore =
-        //     (this.getFirstTermScore() + 2 * this.getSecondTermScore()) / 3;
         return this.fullYearScore;
     }
     saveStudentName() {
         localStorage.setItem("studentName", JSON.stringify(this.studentName));
       }
-    // loadStudentName() {
-    //     return JSON.parse(localStorage.getItem("studentName")) ?? [];
-    //   }
     loadFirstSemesterAverage(){
         const firstSemesterAverage = JSON.parse(localStorage.getItem("firstSemesterAverage"))??{};
         console.log(firstSemesterAverage, this.id);

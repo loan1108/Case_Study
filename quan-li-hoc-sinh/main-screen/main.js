@@ -5,28 +5,21 @@ let student_1 = new Student(
   "Nguyễn Văn A",
   "01/01/2008",
   "11A1",
-  new Detail(),
 );
-// student_1.saveStudentName();
 let student_2 = new Student(
   2,
   "linyi.jpg",
   "Nguyễn Văn B",
   "01/02/2009",
   "11A1",
-  new Detail(),
 );
-// student_2.saveStudentName();
 let student_3 = new Student(
   3,
   "liuyifei.jpg",
   "Nguyễn Văn C",
   "01/03/2009",
   "11A1",
-  new Detail(),
 );
-
-// student_3.saveStudentName();
 let list = new StudentList();
 
 if (list.students.length <= 0) {
@@ -35,7 +28,6 @@ if (list.students.length <= 0) {
   list.addStudent(student_3);
 }
 
-// document.getElementById('add-btn').addEventListener('click', function(){list.addStudent(student_1);});
 //Thêm học sinh mới
 function addNewStudent() {
   let img = prompt("Hãy gắn link ảnh của học sinh");
@@ -114,36 +106,3 @@ function moveToScoreDetailScreen(_index) {
   saveStudentName(_index);
   location.href = "../detail-screen/detail.html";
 }
-
-// class Class{
-//   name;
-//   noStudent = 0;
-//   listStudent = [];
-
-//   constructor(_name, _noStudent){
-//     this.name = _name;
-//   }
-
-//   addStudent(...students) {
-//     this.listStudent.push(...students);
-//     this.noStudent = this.listStudent.length;
-//   }
-// }
-
-// class Student {
-//   constructor(_name, _age){
-//     this.name = _name,
-//     this.age = _age;
-//   }
-// }
-
-
-// const class10A1 = new Class("10A1");
-
-// const Loan  = new Student("Loan", 10);
-// const Tuan  = new Student("Tuan", 11);
-// const Dai  = new Student("Dai", 12);
-
-// class10A1.addStudent(Loan, Tuan, Dai);
-
-// console.log(class10A1);

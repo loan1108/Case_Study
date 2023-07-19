@@ -72,7 +72,6 @@ class StudentList {
     document.getElementById("class-list").innerHTML = str;
   }
   save() {
-    // localStorage.setItem("studentName",JSON.stringify(this.students))
     localStorage.setItem("students", JSON.stringify(this.students));
   }
   load() {
